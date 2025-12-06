@@ -30,6 +30,7 @@ async function initDashboard() {
  * Update all dashboard data
  */
 async function updateDashboard() {
+    console.log('Fetching dashboard data...');
     try {
         // Fetch latest data for all locations
         const latestResponse = await fetch(`${API_BASE_URL}/api/latest`);
@@ -71,6 +72,8 @@ function updateLocationCards(locations) {
             location.AvgSurfaceTemp.toFixed(1);
         document.getElementById(`snow-${locationKey}`).textContent =
             location.MaxSnowAccumulation.toFixed(1);
+        console.log('Updating cards:', locations);
+
 
         // Update safety status
         const statusBadge = document.getElementById(`status-${locationKey}`);
@@ -150,6 +153,10 @@ async function updateCharts() {
                 minute: '2-digit'
             })
         );
+
+        console.log('Ice datasets:', iceDatasets);
+        console.log('Temp datasets:', tempDatasets);
+        console.log('Labels:', labels);
 
         // Update or create ice thickness chart
         if (iceChart) {
