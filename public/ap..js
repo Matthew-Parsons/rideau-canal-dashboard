@@ -66,11 +66,11 @@ function updateLocationCards(locations) {
 
         // Update metrics
         document.getElementById(`ice-${locationKey}`).textContent =
-            location.avgIceThickness.toFixed(1);
+            location.AvgIceThickness.toFixed(1);
         document.getElementById(`temp-${locationKey}`).textContent =
-            location.avgSurfaceTemperature.toFixed(1);
+            location.AvgSurfaceTemperature.toFixed(1);
         document.getElementById(`snow-${locationKey}`).textContent =
-            location.maxSnowAccumulation.toFixed(1);
+            location.MaxSnowAccumulation.toFixed(1);
 
         // Update safety status
         const statusBadge = document.getElementById(`status-${locationKey}`);
@@ -127,7 +127,7 @@ async function updateCharts() {
         // Prepare chart data
         const iceDatasets = historicalData.map(({ location, data }) => ({
             label: location,
-            data: data.map(d => d.avgIceThickness),
+            data: data.map(d => d.AvgIceThickness),
             borderColor: colors[location],
             backgroundColor: colors[location] + '33',
             tension: 0.4,
@@ -136,7 +136,7 @@ async function updateCharts() {
 
         const tempDatasets = historicalData.map(({ location, data }) => ({
             label: location,
-            data: data.map(d => d.avgSurfaceTemperature),
+            data: data.map(d => d.AvgSurfaceTemperature),
             borderColor: colors[location],
             backgroundColor: colors[location] + '33',
             tension: 0.4,
