@@ -74,8 +74,8 @@ function updateLocationCards(locations) {
 
         // Update safety status
         const statusBadge = document.getElementById(`status-${locationKey}`);
-        statusBadge.textContent = location.safetyStatus;
-        statusBadge.className = `safety-badge ${location.safetyStatus.toLowerCase()}`;
+        statusBadge.textContent = location.CurrentStatus;
+        statusBadge.className = `safety-badge ${location.CurrentStatus.toLowerCase()}`;
     });
 }
 
