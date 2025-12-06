@@ -68,7 +68,7 @@ function updateLocationCards(locations) {
         document.getElementById(`ice-${locationKey}`).textContent =
             location.AvgIceThickness.toFixed(1);
         document.getElementById(`temp-${locationKey}`).textContent =
-            location.AvgSurfaceTemperature.toFixed(1);
+            location.AvgSurfaceTemp.toFixed(1);
         document.getElementById(`snow-${locationKey}`).textContent =
             location.MaxSnowAccumulation.toFixed(1);
 
@@ -136,7 +136,7 @@ async function updateCharts() {
 
         const tempDatasets = historicalData.map(({ location, data }) => ({
             label: location,
-            data: data.map(d => d.AvgSurfaceTemperature),
+            data: data.map(d => d.AvgSurfaceTemp),
             borderColor: colors[location],
             backgroundColor: colors[location] + '33',
             tension: 0.4,
